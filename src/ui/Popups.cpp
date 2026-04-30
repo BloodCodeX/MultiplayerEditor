@@ -2,18 +2,18 @@
 
 bool JoinSessionPopup::setup(){
     auto winSize = CCDirector::sharedDirector()->getWinSize();
-    this->setTitle("Join Session");
+   this->m_title->setString("Join Session");
 
     return true;
 }
 
 void JoinSessionPopup::onConnect(CCObject *){
-    this->onClose(nullptr);
+    this->onClose(this);
 }
 
-JoinSessionPopup* JoinSessionPopup::create(){
+JoinSessionPopup* JoinSessionPopup::create() {
     auto ret = new JoinSessionPopup();
-    if (ret && ret->initAnchored(300,200)){
+    if (ret && ret->init(240.f, 160.f)) {
         ret->autorelease();
         return ret;
     }
