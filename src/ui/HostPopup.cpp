@@ -63,7 +63,8 @@ bool HostPopup::setup(){
     auto menu = CCMenu::create();
     menu->addChild(hostBtn);
     menu->setPosition(0, 0);
-    this->m_mainLayer->addChild(menu);
+    this->m_pLayer->addChild(menu);
+
 
     return true;
 }
