@@ -5,7 +5,7 @@ using namespace geode::prelude;
 bool JoinSessionPopup::setup() {
     auto winSize = CCDirector::sharedDirector()->getWinSize();
     
-    this->setTitle("Join Session");
+    this->m_title->setString("Join Session");
 
     return true;
 }
