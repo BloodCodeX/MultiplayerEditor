@@ -17,6 +17,7 @@ endif()
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 project(MultiplayerEditor VERSION 1.0.0)
+add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
 add_subdirectory(libs/enet)
 
