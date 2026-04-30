@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Packets.hpp"
 #include "NetworkManager.hpp"
 #include <Geode/Geode.hpp>
