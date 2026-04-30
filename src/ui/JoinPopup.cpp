@@ -1,23 +1,29 @@
-#include <Geode/Geode.hpp>
-
-#include "../sync/SyncManager.hpp"
 #include "JoinPopup.hpp"
-#include "../network/NetworkManager.hpp"
 
-extern NetworkManager* g_network;
-extern SyncManager* g_sync;
+using namespace geode::prelude;
 
-extern bool g_isHost;
-extern bool g_isInSession;
+bool JoinPopup::setup() {
+    auto winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    this->setTitle("Join Session");
 
-JoinPopup* JoinPopup::create(){
+    return true;
+}
+
+void JoinPopup::onConnect(CCObject* sender) {
+    this->onClose(sender);
+}
+
+JoinPopup* JoinPopup::create() {
     auto ret = new JoinPopup();
-    if (ret->initAnchored(320.0f,280.0f)){
+    if (ret && ret->initAnchored(240.f, 160.f)) {
         ret->autorelease();
         return ret;
     }
-    delete ret;
+    CC_SAFE_DELETE(ret);
     return nullptr;
+}
+
 }
 
 bool JoinPopup::setup(){
