@@ -1,19 +1,22 @@
 #include "Popups.hpp"
 
-bool JoinSessionPopup::setup(){
+using namespace geode::prelude;
+
+bool JoinSessionPopup::setup() {
     auto winSize = CCDirector::sharedDirector()->getWinSize();
-   this->m_title->setString("Join Session");
+    
+    this->setTitle("Join Session");
 
     return true;
 }
 
-void JoinSessionPopup::onConnect(CCObject *){
-    this->onClose(this);
+void JoinSessionPopup::onConnect(CCObject* sender) {
+    this->onClose(sender);
 }
 
 JoinSessionPopup* JoinSessionPopup::create() {
     auto ret = new JoinSessionPopup();
-    if (ret && ret->init(240.f, 160.f)) {
+    if (ret && ret->initAnchored(240.f, 160.f)) {
         ret->autorelease();
         return ret;
     }
