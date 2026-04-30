@@ -8,14 +8,15 @@ extern SyncManager* g_sync;
 extern bool g_isHost;
 extern bool g_isInSession;
 
-HostPopup* HostPopup::create(){
+HostPopup* HostPopup::create() {
     auto ret = new HostPopup();
-    if (ret->initAnchored(320.0f,280.0f)){
+    if (ret && ret->init(240.f, 160.f)) {
         ret->autorelease();
         return ret;
     }
-    delete ret;
+    CC_SAFE_DELETE(ret);
     return nullptr;
+    
 }
 
 bool HostPopup::setup(){
